@@ -66,28 +66,28 @@ let data = [
     }]
   
 let cliente1 = "Suspense";
-let cliente2 = "Corpo Elétrico"
+let cliente2 = "corpo elétrico"
 let cliente3 = "Homem-Aranha: Sem Volta para Casa"
 let cliente4 = "sci-fi" 
 let cliente5 = "romance"
 
 function buscarPorTitulo(entrada) {
-    let filmesEncontrados = []
+    let filmeEncontrado = []
     entrada = entrada.toLowerCase()
     data.forEach(filme => {
         let titulo = filme.titulo.toLowerCase()
         if (titulo.includes(entrada)) {
-            filmesEncontrados.push(filme)
+            filmeEncontrado.push(filme)
         }
     })
-    return filmesEncontrados
+    return filmeEncontrado
 }
 
-function buscarPorGenero(entrada) {
-    let listaPorGenero = []
+function buscarPorGenero(entrada){
+    let  listaPorGenero = []
     entrada = entrada.toLowerCase()
-    for (let filme of data) {
-        if (typeof(filme.genero) == "string") {
+    for (let filme of data){
+        if (typeof(filme.genero) == "string"){
             let filmeEncontrado = (filme.genero).toLowerCase().includes(entrada)
             !!filmeEncontrado ? listaPorGenero.push(filme) : null
         } else {
@@ -95,36 +95,38 @@ function buscarPorGenero(entrada) {
             filmeEncontradoArray != undefined ? listaPorGenero.push(filme) : null
         }
     }
-    return listaPorGenero
+return listaPorGenero
 }
 
-
-function buscarFilmes(entrada) {
-    if (typeof(entrada) == "string") {
+function buscarFilmes(entrada){
+    if (typeof(entrada) == "string"){
         let porTitulo = buscarPorTitulo(entrada)
         let porGenero = buscarPorGenero(entrada)
-        if(porTitulo.length > 0 && porGenero.length > 0) {
-            console.log("--------Encontrados por título--------")
+        if (porTitulo.length > 0 && porGenero > 0){
+            console.log("*********Encontrados por Título**********")
             console.log(porTitulo)
-            console.log("--------------------------------------")
-            console.log("--------Encontrados por gênero--------")
+            console.log("*****************************************")
+            console.log("*********Encontrados por Gênero**********")
             console.log(porGenero)
-            console.log("--------------------------------------")
+            console.log("*****************************************")
         } else if (porTitulo.length > 0) {
-            console.log("--------Encontrados por título--------")
+            console.log("*********Encontrados por Título**********")
             console.log(porTitulo)
-            console.log("--------------------------------------")
+            console.log("*****************************************")
         } else if (porGenero.length > 0) {
-            console.log("--------Encontrados por gênero--------")
+            console.log("*********Encontrados por Gênero**********")
             console.log(porGenero)
-            console.log("--------------------------------------")
+            console.log("*****************************************")
         } else {
-            console.log("Nenhum filme ou dado foi encontrado com o valor digitado")
-        }    
-    } else {
-        console.log('dado inválido')
+            console.log("Desculpe, nenhum filme ou dado foi encontrado com os dados digitados.")
+        }
+        
+        
+        
+    } else{
+        console.log('Dados Inválidos')
     }
+
 }
 
-
-buscarFilmes("home")
+buscarFilmes("abelha")
